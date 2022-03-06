@@ -10,7 +10,7 @@ public class Movement : MonoBehaviour
 
     [SerializeField] LayerMask layerMask;
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (Input.GetMouseButton(0)) MoveToPosition();
     }
