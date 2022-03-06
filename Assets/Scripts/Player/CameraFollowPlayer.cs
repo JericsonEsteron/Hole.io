@@ -9,18 +9,28 @@ public class CameraFollowPlayer : MonoBehaviour
     [SerializeField] Transform player;
 
     [Header("Set-up Camera position from player in X, Y and Z axes")]
-    [SerializeField] float positionInX;
-    [SerializeField] float positionInY;
+    [SerializeField] float positionInX = -3.59f;
+    [SerializeField] float positionInY = 2.95f;
     [SerializeField] float positionInZ;
 
     [Header("Set-up Camera rotation from player in X, Y and Z axes")]
-    [SerializeField] float rotationInX;
-    [SerializeField] float rotationInY;
+    [SerializeField] float rotationInX = 38.49f;
+    [SerializeField] float rotationInY = 90f;
     [SerializeField] float rotationInZ;
+
+    // Increases based on HoleSize, Check SwallowTargets.cs
+    public static float XCounter = 0;
+    public static float YCounter = 0;
+
+    private void Start()
+    {
+        XCounter = positionInX;
+        YCounter = positionInY;
+    }
 
     private void LateUpdate()
     {
-        Vector3 offset = new Vector3(positionInX, positionInY, positionInZ);
+        Vector3 offset = new Vector3(XCounter, YCounter, positionInZ);
         Quaternion rotation = Quaternion.Euler(rotationInX, rotationInY, rotationInZ);
 
         Vector3 position = player.position + offset;
