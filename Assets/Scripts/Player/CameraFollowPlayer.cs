@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraFollowTarget : MonoBehaviour
+[RequireComponent(typeof(Camera))]
+public class CameraFollowPlayer : MonoBehaviour
 {
     [Header("Set-up Player Transform")]
     [SerializeField] Transform player;
